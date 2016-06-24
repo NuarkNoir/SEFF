@@ -43,18 +43,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlAgilityPack.dll" size="134656">
-      <assemblyIdentity name="HtmlAgilityPack" version="1.4.9.0" publicKeyToken="BD319B19EAF3B43A" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XH0MTgrjsVol/leRhjvTnBR0ve6f+u6XugfywnkOGxM=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NuarkNETOD.dll" size="5120">
       <assemblyIdentity name="NuarkNETOD" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -67,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SEFF.exe" size="31232">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SEFF.exe" size="27648">
       <assemblyIdentity name="SEFF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GmMKvmA66tegc5qFesVBa/LRRPM9iAoIj52XnUZh9BM=</dsig:DigestValue>
+        <dsig:DigestValue>2D4Rn19W//yNdJ6CGAQwiLssbGK1kITdf16PXw4eICs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

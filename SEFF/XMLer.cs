@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -12,28 +11,39 @@ namespace SEFF
 {
     public partial class XmLer : Form
     {
+        private string downloadBLOCK;
+        private string downloadFBTWO;
+        private string downloadHTML;
+        public bool Forf;
+        private string htmlDoc;
+        private int maxFanf = 5;
+
+        private int number = 1;
+        private readonly string pathToXml = @"fanfDB.xml";
+        private string rate;
+        private string reads;
+        private string title;
+        private string words;
+
         public XmLer()
         {
             InitializeComponent();
-            if (File.Exists(pathToXml) == true) { button2.Enabled = true; button3.Enabled = true; } else { button2.Enabled = false; button3.Enabled = false; };
+            if (File.Exists(pathToXml))
+            {
+                button2.Enabled = true;
+                button3.Enabled = true;
+            }
+            else
+            {
+                button2.Enabled = false;
+                button3.Enabled = false;
+            }
+            ;
         }
-
-        private int number = 1;
-        private int maxFanf = 5;
-        private string title;
-        private string htmlDoc;
-        private string words;
-        private string reads;
-        private string rate;
-        private string pathToXml = @"fanfDB.xml";
-        public bool Forf;
-        private string downloadBLOCK;
-        private string downloadHTML;
-        private string downloadFBTWO;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int i = int.Parse(textBox1.Text);
+            var i = int.Parse(textBox1.Text);
             maxFanf = i;
             progressBar1.Maximum = maxFanf;
             progressBar1.Value = 0;
@@ -42,7 +52,7 @@ namespace SEFF
             {
                 if (!File.Exists(pathToXml))
                 {
-                    XmlTextWriter textWritter = new XmlTextWriter(pathToXml, Encoding.UTF8);
+                    var textWritter = new XmlTextWriter(pathToXml, Encoding.UTF8);
 
                     textWritter.WriteStartDocument();
 
@@ -58,23 +68,38 @@ namespace SEFF
 
                     if (Forf == false)
                     {
-                        XmlDocument document = new XmlDocument();
+                        var document = new XmlDocument();
 
                         title = Regex.Match(htmlDoc, @"<title>(.*?)</title>").ToString();
-                        title = Regex.Match(title, @"[^(<title>)]([\[\]A-Za-zА-Яа-я\.: —]?[^( & )]){1,100}[^(</title>)]").ToString();
-                        rate = Regex.Match(htmlDoc, @"(Рейтинг — <a href=""/search/rating/)(1|2|3|4)(/"">)(G|PG-13|R|NC-18)").ToString();
+                        title =
+                            Regex.Match(title, @"[^(<title>)]([\[\]A-Za-zА-Яа-я\.: —]?[^( & )]){1,100}[^(</title>)]")
+                                .ToString();
+                        rate =
+                            Regex.Match(htmlDoc,
+                                @"(Рейтинг — <a href=""/search/rating/)(1|2|3|4)(/"">)(G|PG-13|R|NC-18)").ToString();
                         rate = Regex.Match(rate, @"(G|PG-13|R|NC-18)").ToString();
-                        words = Regex.Match(htmlDoc, @"([0-9]* (слов|слово|слова), [0-9]* (просмотра|просмотров))").ToString();
+                        words =
+                            Regex.Match(htmlDoc, @"([0-9]* (слов|слово|слова), [0-9]* (просмотра|просмотров))")
+                                .ToString();
                         words = Regex.Match(words, @"([0-9]* (слов|слово|слова))").ToString();
                         words = Regex.Match(words, @"[0-9]*\d").ToString();
-                        reads = Regex.Match(htmlDoc, @"([0-9]* (слов|слово|слова), [0-9]* (просмотра|просмотров))").ToString();
+                        reads =
+                            Regex.Match(htmlDoc, @"([0-9]* (слов|слово|слова), [0-9]* (просмотра|просмотров))")
+                                .ToString();
                         reads = Regex.Match(reads, @"([0-9]* (просмотра|просмотров))").ToString();
                         reads = Regex.Match(reads, @"[0-9]*\d").ToString();
-                        downloadBLOCK = Regex.Match(htmlDoc, @"((<span class=""chapter-controls"">)(.*?)(<\/span>))").ToString();
-                        downloadHTML = Regex.Match(downloadBLOCK, @"((<a title=""Скачать в HTML"" href="")(.*?)("" class=""get html"">))").ToString();
-                        downloadHTML = Regex.Match(downloadHTML, @"(((\/story\/([0-9]+?)\/download\/(.*?).html.zip)))").ToString();
-                        downloadFBTWO = Regex.Match(downloadBLOCK, @"((<a title=""Скачать в FB2"" href="")(.*?)("" class=""get fb2"">))").ToString();
-                        downloadFBTWO = Regex.Match(downloadFBTWO, @"((\/story\/([0-9]+?)\/download\/(.*?).fb2.zip))").ToString();
+                        downloadBLOCK =
+                            Regex.Match(htmlDoc, @"((<span class=""chapter-controls"">)(.*?)(<\/span>))").ToString();
+                        downloadHTML =
+                            Regex.Match(downloadBLOCK,
+                                @"((<a title=""Скачать в HTML"" href="")(.*?)("" class=""get html"">))").ToString();
+                        downloadHTML =
+                            Regex.Match(downloadHTML, @"(((\/story\/([0-9]+?)\/download\/(.*?).html.zip)))").ToString();
+                        downloadFBTWO =
+                            Regex.Match(downloadBLOCK,
+                                @"((<a title=""Скачать в FB2"" href="")(.*?)("" class=""get fb2"">))").ToString();
+                        downloadFBTWO =
+                            Regex.Match(downloadFBTWO, @"((\/story\/([0-9]+?)\/download\/(.*?).fb2.zip))").ToString();
 
                         if (Forf == false)
                         {
@@ -85,9 +110,9 @@ namespace SEFF
                         document.Load(pathToXml);
                         XmlNode element = document.CreateElement("Fanfic");
                         document.DocumentElement.AppendChild(element);
-                        XmlAttribute id = document.CreateAttribute("id");
+                        var id = document.CreateAttribute("id");
                         id.Value = number.ToString();
-                        XmlAttribute forbidden = document.CreateAttribute("Forbidden");
+                        var forbidden = document.CreateAttribute("Forbidden");
                         forbidden.Value = Forf.ToString();
                         element.Attributes.Append(forbidden);
 
@@ -115,7 +140,7 @@ namespace SEFF
                         subElement6.InnerText = downloadFBTWO;
                         element.AppendChild(subElement6);
 
-                        if (Forf == true) element.RemoveAll();
+                        if (Forf) element.RemoveAll();
 
                         document.Save(pathToXml);
                     }
@@ -132,7 +157,7 @@ namespace SEFF
                 MessageBox.Show(ex.Message);
             }
 
-            if (File.Exists(pathToXml) == true)
+            if (File.Exists(pathToXml))
             {
                 button2.Enabled = true;
                 button3.Enabled = true;
@@ -141,13 +166,14 @@ namespace SEFF
             {
                 button2.Enabled = false;
                 button3.Enabled = false;
-            };
+            }
+            ;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             File.Delete(pathToXml);
-            if (File.Exists(pathToXml) == true)
+            if (File.Exists(pathToXml))
             {
                 button2.Enabled = true;
                 button3.Enabled = true;
@@ -156,7 +182,8 @@ namespace SEFF
             {
                 button2.Enabled = false;
                 button3.Enabled = false;
-            };
+            }
+            ;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -166,7 +193,7 @@ namespace SEFF
 
         private void XmLer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Chooser newMDIChild = new Chooser();
+            var newMDIChild = new Chooser();
             newMDIChild.Show();
             Hide();
         }

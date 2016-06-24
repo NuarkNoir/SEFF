@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 
 namespace SEFF
@@ -10,7 +8,6 @@ namespace SEFF
         public Chooser()
         {
             InitializeComponent();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,12 +19,6 @@ namespace SEFF
         private void button2_Click(object sender, EventArgs e)
         {
             new Main().Show();
-            Hide();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            new ParserV3().Show();
             Hide();
         }
 

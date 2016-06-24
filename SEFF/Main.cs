@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using NuarkNETOD;
@@ -9,7 +7,6 @@ namespace SEFF
 {
     public partial class Main : Form
     {
-        public bool Forf;
         private string _htmlDoc;
         private int _maxFanf = 5;
         private int _n;
@@ -19,6 +16,7 @@ namespace SEFF
         private string _reads;
         private string _title;
         private string _words;
+        public bool Forf;
 
         public Main()
         {

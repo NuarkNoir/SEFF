@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SEFF.exe" size="31232">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SEFF.exe" size="30208">
       <assemblyIdentity name="SEFF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GmMKvmA66tegc5qFesVBa/LRRPM9iAoIj52XnUZh9BM=</dsig:DigestValue>
+        <dsig:DigestValue>h/bwAltPWE1sUQ3lyWRuhMd4yVZ9a3sC9UPy4Hc+NLA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
