@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace SEFF
 {
-    partial class XMLer
+    partial class XmLer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XMLer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XmLer));
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chooserCaller = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -54,7 +53,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.chooserCaller);
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Location = new System.Drawing.Point(2, 46);
             this.groupBox2.Name = "groupBox2";
@@ -62,16 +60,6 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Инфа";
-            // 
-            // chooserCaller
-            // 
-            this.chooserCaller.Location = new System.Drawing.Point(640, 0);
-            this.chooserCaller.Name = "chooserCaller";
-            this.chooserCaller.Size = new System.Drawing.Size(99, 19);
-            this.chooserCaller.TabIndex = 20;
-            this.chooserCaller.Text = "CALL CHOOSER";
-            this.chooserCaller.UseVisualStyleBackColor = true;
-            this.chooserCaller.Click += new System.EventHandler(this.button5_Click);
             // 
             // richTextBox1
             // 
@@ -136,7 +124,7 @@
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // XMLer
+            // XmLer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,9 +138,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "XMLer";
+            this.Name = "XmLer";
             this.Text = "XMLer";
-            this.Load += new System.EventHandler(this.XMLer_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.XmLer_FormClosed);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,6 +157,5 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button chooserCaller;
     }
 }

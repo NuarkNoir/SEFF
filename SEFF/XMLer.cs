@@ -6,12 +6,13 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
+using NuarkNETOD;
 
-namespace WindowsFormsApplication1
+namespace SEFF
 {
-    public partial class XMLer : Form
+    public partial class XmLer : Form
     {
-        public XMLer()
+        public XmLer()
         {
             InitializeComponent();
             if (File.Exists(pathToXml) == true) { button2.Enabled = true; button3.Enabled = true; } else { button2.Enabled = false; button3.Enabled = false; };
@@ -25,62 +26,10 @@ namespace WindowsFormsApplication1
         private string reads;
         private string rate;
         private string pathToXml = @"fanfDB.xml";
-        public bool forf;
+        public bool Forf;
         private string downloadBLOCK;
         private string downloadHTML;
         private string downloadFBTWO;
-
-        private string getResponse(string uri)
-        {
-            forf = false;
-            try
-            {
-                StringBuilder sb = new StringBuilder();
-                byte[] buf = new byte[8192];
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                Stream resStream = response.GetResponseStream();
-                int count = 0;
-                do
-                {
-                    count = resStream.Read(buf, 0, buf.Length);
-                    if (count != 0)
-                    {
-                        sb.Append(Encoding.UTF8.GetString(buf, 0, count));
-                    }
-                }
-                while (count > 0);
-                return sb.ToString();
-            }
-            catch (WebException ex)
-            {
-                forf = true;
-                HttpWebResponse webResponse = (HttpWebResponse)ex.Response;
-                if (webResponse.StatusCode == HttpStatusCode.NotFound)
-                {
-                    return "404";
-                }
-                else
-                {
-                    if (webResponse.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        return "403";
-                    }
-                    else
-                    {
-                        if (webResponse.StatusCode == HttpStatusCode.BadGateway)
-                        {
-                            return "502";
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
-                }
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -105,9 +54,9 @@ namespace WindowsFormsApplication1
                 }
                 while (number <= maxFanf)
                 {
-                    htmlDoc = getResponse(@"https://stories.everypony.ru/story/" + number);
+                    htmlDoc = NuarkNeToD.GetResponse(@"https://stories.everypony.ru/story/" + number);
 
-                    if (forf == false)
+                    if (Forf == false)
                     {
                         XmlDocument document = new XmlDocument();
 
@@ -127,7 +76,7 @@ namespace WindowsFormsApplication1
                         downloadFBTWO = Regex.Match(downloadBLOCK, @"((<a title=""Скачать в FB2"" href="")(.*?)("" class=""get fb2"">))").ToString();
                         downloadFBTWO = Regex.Match(downloadFBTWO, @"((\/story\/([0-9]+?)\/download\/(.*?).fb2.zip))").ToString();
 
-                        if (forf == false)
+                        if (Forf == false)
                         {
                             downloadHTML = "http://stories.everypony.ru" + downloadHTML;
                             downloadFBTWO = "http://stories.everypony.ru" + downloadFBTWO;
@@ -139,7 +88,7 @@ namespace WindowsFormsApplication1
                         XmlAttribute id = document.CreateAttribute("id");
                         id.Value = number.ToString();
                         XmlAttribute forbidden = document.CreateAttribute("Forbidden");
-                        forbidden.Value = forf.ToString();
+                        forbidden.Value = Forf.ToString();
                         element.Attributes.Append(forbidden);
 
                         XmlNode subElement1 = document.CreateElement("Tittle");
@@ -166,7 +115,7 @@ namespace WindowsFormsApplication1
                         subElement6.InnerText = downloadFBTWO;
                         element.AppendChild(subElement6);
 
-                        if (forf == true) element.RemoveAll();
+                        if (Forf == true) element.RemoveAll();
 
                         document.Save(pathToXml);
                     }
@@ -215,11 +164,7 @@ namespace WindowsFormsApplication1
             Process.Start("notepad.exe", pathToXml);
         }
 
-        private void XMLer_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void XmLer_FormClosed(object sender, FormClosedEventArgs e)
         {
             Chooser newMDIChild = new Chooser();
             newMDIChild.Show();
