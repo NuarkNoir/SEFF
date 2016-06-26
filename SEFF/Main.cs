@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using NuarkNETOD;
@@ -23,8 +24,13 @@ namespace SEFF
             InitializeComponent();
         }
 
+        public int Px = 10;
+        public int Py = 40;
+
         private void button1_Click(object sender, EventArgs e)
         {
+            FanficItemInterface fc = new FanficItemInterface();
+
             var fics = new TreeNode("Фанфики");
 
             var i = int.Parse(textBox1.Text);
@@ -65,6 +71,8 @@ namespace SEFF
                     dataGridView1.Rows[_n].Cells[4].Value = _reads;
 
                     if (_title == "") dataGridView1.Rows[_n].Visible = false;
+
+                    ControlAdd(_title, _rate, _reads, _words, _number);
                 }
                 progressBar1.Value = _number;
                 _number = _number + 1;
@@ -74,6 +82,24 @@ namespace SEFF
             button1.Enabled = false;
 
             _number = 1;
+        }
+
+        public void ControlAdd(string t, string ra, string re, string wo, int num)
+        {
+            var fc = new FanficItemInterface
+            {
+                Name = "Fcontr" + _number.ToString(),
+                FName = _title,
+                AGRate = _rate,
+                CountReads = _reads,
+                CountWords = _words,
+                Identificator = _number.ToString(),
+                Location = new Point(Px, Py)
+            };
+
+            Controls.Add(fc);
+
+            Py += 50;
         }
 
         private void button2_Click(object sender, EventArgs e)

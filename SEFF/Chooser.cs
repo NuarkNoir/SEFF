@@ -26,5 +26,16 @@ namespace SEFF
         {
             Application.Exit();
         }
+
+        private void Chooser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new ParserV3().Show();
+            Hide();
+        }
     }
 }

@@ -3,3 +3,5 @@ C:\Users\Nuark.Noir\Documents\GitHub\Project\NuarkNETOD\bin\Release\NuarkNETOD.p
 C:\Users\Nuark.Noir\Documents\GitHub\Project\NuarkNETOD\obj\Release\NuarkNETOD.csprojResolveAssemblyReference.cache
 C:\Users\Nuark.Noir\Documents\GitHub\Project\NuarkNETOD\obj\Release\NuarkNETOD.dll
 C:\Users\Nuark.Noir\Documents\GitHub\Project\NuarkNETOD\obj\Release\NuarkNETOD.pdb
+C:\Users\Nuark.Noir\Documents\GitHub\Project\NuarkNETOD\obj\Release\NuarkNETOD.FanficItemInterface.resources
+C:\Users\Nuark.Noir\Documents\GitHub\Project\NuarkNETOD\obj\Release\NuarkNETOD.csproj.GenerateResource.Cache
