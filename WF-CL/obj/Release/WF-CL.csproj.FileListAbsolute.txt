@@ -1,7 +1,0 @@
-C:\Users\Nuark.Noir\Documents\GitHub\Project\WF-CL\bin\Release\WF-CL.dll
-C:\Users\Nuark.Noir\Documents\GitHub\Project\WF-CL\bin\Release\WF-CL.pdb
-C:\Users\Nuark.Noir\Documents\GitHub\Project\WF-CL\obj\Release\WF-CL.csprojResolveAssemblyReference.cache
-C:\Users\Nuark.Noir\Documents\GitHub\Project\WF-CL\obj\Release\WF_CL.FContr.resources
-C:\Users\Nuark.Noir\Documents\GitHub\Project\WF-CL\obj\Release\WF-CL.csproj.GenerateResource.Cache
-C:\Users\Nuark.Noir\Documents\GitHub\Project\WF-CL\obj\Release\WF-CL.dll
-C:\Users\Nuark.Noir\Documents\GitHub\Project\WF-CL\obj\Release\WF-CL.pdb

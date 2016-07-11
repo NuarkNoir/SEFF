@@ -101,11 +101,7 @@ namespace SEFF
                         _downloadFbtwo =
                             Regex.Match(_downloadFbtwo, @"((\/story\/([0-9]+?)\/download\/(.*?).fb2.zip))").ToString();
 
-                        if (Forf == false)
-                        {
-                            _downloadHtml = "http://stories.everypony.ru" + _downloadHtml;
-                            _downloadFbtwo = "http://stories.everypony.ru" + _downloadFbtwo;
-                        }
+                        if (Forf == false) _downloadFbtwo = "http://stories.everypony.ru" + _downloadFbtwo;
 
                         document.Load(_pathToXml);
                         XmlNode element = document.CreateElement("Fanfic");
@@ -193,8 +189,7 @@ namespace SEFF
 
         private void XmLer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var newMdiChild = new Chooser();
-            newMdiChild.Show();
+            new Chooser().Show();
             Hide();
         }
     }

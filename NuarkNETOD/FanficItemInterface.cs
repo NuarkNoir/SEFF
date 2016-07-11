@@ -14,7 +14,10 @@ namespace NuarkNETOD
         public string HtmlLink;
         public string Identificator;
 
-        private readonly WebClient wc = new WebClient();
+        public bool htmlAva = false;
+        public bool fb2Ava = false;
+
+        private static readonly WebClient wc = new WebClient();
 
         public FanficItemInterface()
         {
@@ -40,6 +43,13 @@ namespace NuarkNETOD
             words.Text = CountWords;
             reads.Text = CountReads;
             rate.Text = AGRate;
+
+
+            if (htmlAva | fb2Ava)
+            {
+                htmldownload.Enabled = false;
+                fb2download.Enabled = false;
+            }
         }
     }
 }

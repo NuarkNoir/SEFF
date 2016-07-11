@@ -31,8 +31,6 @@ namespace SEFF
         {
             FanficItemInterface fc = new FanficItemInterface();
 
-            var fics = new TreeNode("Фанфики");
-
             var i = int.Parse(textBox1.Text);
             _maxFanf = i;
             progressBar1.Maximum = _maxFanf;
@@ -43,36 +41,28 @@ namespace SEFF
 
                 if (Forf == false)
                 {
-                    _n = dataGridView1.Rows.Add();
-                    dataGridView1.Rows[_n].Cells[0].Value = _number;
-
                     _title = Regex.Match(_htmlDoc, @"<title>(.*?)</title>").ToString();
-                    _title =
-                        Regex.Match(_title, @"[^(<title>)]([\[\]A-Za-zА-Яа-я\.: —]?[^( & )]){1,100}[^(</title>)]")
-                            .ToString();
-                    dataGridView1.Rows[_n].Cells[1].Value = _title;
+                    _title = Regex.Match(_title, @"[^(<title>)]([\[\]A-Za-zА-Яа-я\.: —]?[^( & )]){1,100}[^(</title>)]").ToString();
 
-                    _rate =
-                        Regex.Match(_htmlDoc, @"(Рейтинг — <a href=""/search/rating/)(1|2|3|4)(/"">)(G|PG-13|R|NC-18)")
-                            .ToString();
+                    _rate = Regex.Match(_htmlDoc, @"(Рейтинг — <a href=""/search/rating/)(1|2|3|4)(/"">)(G|PG-13|R|NC-18)").ToString();
                     _rate = Regex.Match(_rate, @"(G|PG-13|R|NC-18)").ToString();
-                    dataGridView1.Rows[_n].Cells[2].Value = _rate;
 
-                    _words =
-                        Regex.Match(_htmlDoc, @"([0-9]* (слов|слово|слова), [0-9]* (просмотра|просмотров))").ToString();
+                    _words = Regex.Match(_htmlDoc, @"([0-9]* (слов|слово|слова), [0-9]* (просмотра|просмотров))").ToString();
                     _words = Regex.Match(_words, @"([0-9]* (слов|слово|слова))").ToString();
                     _words = Regex.Match(_words, @"[0-9]*\d").ToString();
-                    dataGridView1.Rows[_n].Cells[3].Value = _words;
 
-                    _reads =
-                        Regex.Match(_htmlDoc, @"([0-9]* (слов|слово|слова), [0-9]* (просмотра|просмотров))").ToString();
+                    _reads = Regex.Match(_htmlDoc, @"([0-9]* (слов|слово|слова), [0-9]* (просмотра|просмотров))").ToString();
                     _reads = Regex.Match(_reads, @"([0-9]* (просмотра|просмотров))").ToString();
                     _reads = Regex.Match(_reads, @"[0-9]*\d").ToString();
+
+                    _n = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[_n].Cells[0].Value = _number;
+                    dataGridView1.Rows[_n].Cells[1].Value = _title;
+                    dataGridView1.Rows[_n].Cells[2].Value = _rate;
+                    dataGridView1.Rows[_n].Cells[3].Value = _words;
                     dataGridView1.Rows[_n].Cells[4].Value = _reads;
 
                     if (_title == "") dataGridView1.Rows[_n].Visible = false;
-
-                    ControlAdd(_title, _rate, _reads, _words, _number);
                 }
                 progressBar1.Value = _number;
                 _number = _number + 1;
@@ -82,24 +72,6 @@ namespace SEFF
             button1.Enabled = false;
 
             _number = 1;
-        }
-
-        public void ControlAdd(string t, string ra, string re, string wo, int num)
-        {
-            var fc = new FanficItemInterface
-            {
-                Name = "Fcontr" + _number.ToString(),
-                FName = _title,
-                AGRate = _rate,
-                CountReads = _reads,
-                CountWords = _words,
-                Identificator = _number.ToString(),
-                Location = new Point(Px, Py)
-            };
-
-            Controls.Add(fc);
-
-            Py += 50;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -112,8 +84,7 @@ namespace SEFF
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var newMdiChild = new Chooser();
-            newMdiChild.Show();
+            new Chooser().Show();
             Hide();
         }
     }

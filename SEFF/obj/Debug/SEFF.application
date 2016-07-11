@@ -7,14 +7,14 @@
     <framework targetVersion="4.6" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="SEFF.exe.manifest" size="5177">
+    <dependentAssembly dependencyType="install" codebase="SEFF.exe.manifest" size="4757">
       <assemblyIdentity name="SEFF.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>INQV+rJux7Mamk9T7zIXlrNSt/23QUeMIf6sQhnPNZA=</dsig:DigestValue>
+        <dsig:DigestValue>OmZj5fXnyW7RF58hcCu6To/SPorSH4UF8RLWARm0y4k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -44,6 +44,7 @@
             // 
             // fb2download
             // 
+            this.fb2download.Enabled = false;
             this.fb2download.Location = new System.Drawing.Point(315, 20);
             this.fb2download.Name = "fb2download";
             this.fb2download.Size = new System.Drawing.Size(47, 30);
@@ -54,6 +55,7 @@
             // 
             // htmldownload
             // 
+            this.htmldownload.Enabled = false;
             this.htmldownload.Location = new System.Drawing.Point(262, 20);
             this.htmldownload.Name = "htmldownload";
             this.htmldownload.Size = new System.Drawing.Size(47, 30);
@@ -152,10 +154,12 @@
             this.rate.TabIndex = 11;
             this.rate.Text = "#rate#";
             // 
-            // FContr
+            // FanficItemInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.rate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.reads);
@@ -169,7 +173,7 @@
             this.Controls.Add(this.htmldownload);
             this.Controls.Add(this.fb2download);
             this.Name = "FanficItemInterface";
-            this.Size = new System.Drawing.Size(365, 53);
+            this.Size = new System.Drawing.Size(363, 53);
             this.Load += new System.EventHandler(this.FContr_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

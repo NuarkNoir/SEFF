@@ -55,26 +55,17 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SEFF.exe" size="30208">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SEFF.exe" size="32768">
       <assemblyIdentity name="SEFF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>diiReTu/M9+V+wQAEBixxjyGDbHvO66dzHuqfAKq0tI=</dsig:DigestValue>
+        <dsig:DigestValue>25O4wmpefz4fRT7jKxrqsB6wxlvH/47qb4mT7Jfeujg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="fanfDB.xml" size="1625" writeableType="applicationData">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>GySRsTb/uE3WyPA5N6jt9mSUHkmQwyEv6CW3bOKKD5Q=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="favicon.ico" size="1150">
     <hash>
       <dsig:Transforms>
