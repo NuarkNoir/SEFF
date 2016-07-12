@@ -6,3 +6,5 @@ ehthumbs.db
 Desktop.ini
 
 .vs/
+obj/
+bin/
