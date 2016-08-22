@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using NuarkNETOD;
@@ -29,8 +28,6 @@ namespace SEFF
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FanficItemInterface fc = new FanficItemInterface();
-
             var i = int.Parse(textBox1.Text);
             _maxFanf = i;
             progressBar1.Maximum = _maxFanf;

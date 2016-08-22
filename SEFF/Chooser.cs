@@ -38,5 +38,10 @@ namespace SEFF
             new ParserV3().Show();
             Hide();
         }
+
+        private void Chooser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

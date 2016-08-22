@@ -59,5 +59,23 @@ namespace SEFF.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Обработка.
+        /// </summary>
+        internal static string Work {
+            get {
+                return ResourceManager.GetString("Work", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Всё сделано.
+        /// </summary>
+        internal static string WorkDone {
+            get {
+                return ResourceManager.GetString("WorkDone", resourceCulture);
+            }
+        }
     }
 }

@@ -36,7 +36,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -105,21 +104,11 @@
             this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 14;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(357, 15);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 25);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Open DB(Old or New)";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(230, 15);
+            this.button4.Location = new System.Drawing.Point(358, 15);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(121, 25);
+            this.button4.Size = new System.Drawing.Size(120, 25);
             this.button4.TabIndex = 19;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = true;
@@ -130,7 +119,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 515);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox1);
@@ -155,7 +143,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
     }
 }

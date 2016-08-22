@@ -1,29 +1,22 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
 using NuarkNETOD;
+using SEFF.Properties;
 
 namespace SEFF
 {
     public partial class XmLer : Form
     {
-        private string _downloadBlock;
-        private string _downloadFbtwo;
-        private string _downloadHtml;
-        public bool Forf;
-        private string _htmlDoc;
+        private string _downloadBlock, _downloadFbtwo, _downloadHtml, _htmlDoc, _rate, _reads, _title, _words;
+        private bool _forf = true;
         private int _maxFanf = 5;
 
         private int _number = 1;
-        private readonly string _pathToXml = @"fanfDB.xml";
-        private string _rate;
-        private string _reads;
-        private string _title;
-        private string _words;
+        private readonly string _pathToXml = "fanfDB.xml";
 
         public XmLer()
         {
@@ -31,14 +24,11 @@ namespace SEFF
             if (File.Exists(_pathToXml))
             {
                 button2.Enabled = true;
-                button3.Enabled = true;
             }
             else
             {
                 button2.Enabled = false;
-                button3.Enabled = false;
             }
-            ;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,20 +43,16 @@ namespace SEFF
                 if (!File.Exists(_pathToXml))
                 {
                     var textWritter = new XmlTextWriter(_pathToXml, Encoding.UTF8);
-
                     textWritter.WriteStartDocument();
-
                     textWritter.WriteStartElement("head");
-
                     textWritter.WriteEndElement();
-
                     textWritter.Close();
                 }
                 while (_number <= _maxFanf)
                 {
                     _htmlDoc = NuarkNeToD.GetResponse(@"https://stories.everypony.ru/story/" + _number);
 
-                    if (Forf == false)
+                    if (_forf == false)
                     {
                         var document = new XmlDocument();
 
@@ -101,16 +87,16 @@ namespace SEFF
                         _downloadFbtwo =
                             Regex.Match(_downloadFbtwo, @"((\/story\/([0-9]+?)\/download\/(.*?).fb2.zip))").ToString();
 
-                        if (Forf == false) _downloadFbtwo = "http://stories.everypony.ru" + _downloadFbtwo;
+                        if (_forf == false) _downloadFbtwo = "http://stories.everypony.ru" + _downloadFbtwo;
 
                         document.Load(_pathToXml);
                         XmlNode element = document.CreateElement("Fanfic");
-                        document.DocumentElement.AppendChild(element);
+                        document.DocumentElement?.AppendChild(element);
                         var id = document.CreateAttribute("id");
                         id.Value = _number.ToString();
                         var forbidden = document.CreateAttribute("Forbidden");
-                        forbidden.Value = Forf.ToString();
-                        element.Attributes.Append(forbidden);
+                        forbidden.Value = _forf.ToString();
+                        element.Attributes?.Append(forbidden);
 
                         XmlNode subElement1 = document.CreateElement("Tittle");
                         subElement1.InnerText = _title;
@@ -136,7 +122,7 @@ namespace SEFF
                         subElement6.InnerText = _downloadFbtwo;
                         element.AppendChild(subElement6);
 
-                        if (Forf) element.RemoveAll();
+                        if (_forf) element.RemoveAll();
 
                         document.Save(_pathToXml);
                     }
@@ -144,7 +130,7 @@ namespace SEFF
                     _number = _number + 1;
                 }
 
-                if (_number > _maxFanf) MessageBox.Show("Всё сделано", "Обработка");
+                if (_number > _maxFanf) MessageBox.Show(Resources.WorkDone, Resources.Work);
 
                 _number = 1;
             }
@@ -156,14 +142,11 @@ namespace SEFF
             if (File.Exists(_pathToXml))
             {
                 button2.Enabled = true;
-                button3.Enabled = true;
             }
             else
             {
                 button2.Enabled = false;
-                button3.Enabled = false;
             }
-            ;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -172,19 +155,11 @@ namespace SEFF
             if (File.Exists(_pathToXml))
             {
                 button2.Enabled = true;
-                button3.Enabled = true;
             }
             else
             {
                 button2.Enabled = false;
-                button3.Enabled = false;
             }
-            ;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Process.Start("notepad.exe", _pathToXml);
         }
 
         private void XmLer_FormClosed(object sender, FormClosedEventArgs e)
