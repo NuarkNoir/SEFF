@@ -6,3 +6,7 @@ ehthumbs.db
 Desktop.ini
 
 .vs/
+packages/
+*/bin
+*/obj
+*.suo
