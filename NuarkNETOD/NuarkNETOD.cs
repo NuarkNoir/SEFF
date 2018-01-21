@@ -10,7 +10,7 @@ namespace NuarkNETOD
 {
     public class NuarkNeToD
     {
-        public static bool Forf;
+        static bool Forf;
 
         public static string GetResponse(string uri)
         {

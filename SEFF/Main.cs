@@ -81,8 +81,7 @@ namespace SEFF
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
-            new Chooser().Show();
-            Hide();
+
         }
     }
 }

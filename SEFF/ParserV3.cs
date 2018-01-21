@@ -100,8 +100,7 @@ namespace SEFF
 
         private void ParserV3_FormClosed(object sender, FormClosedEventArgs e)
         {
-            new Chooser().Show();
-            Hide();
+
         }
     }
 }

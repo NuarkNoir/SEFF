@@ -164,8 +164,7 @@ namespace SEFF
 
         private void XmLer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            new Chooser().Show();
-            Hide();
+
         }
     }
 }

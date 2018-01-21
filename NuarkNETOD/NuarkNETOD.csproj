@@ -40,21 +40,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="FanficItemInterface.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FanficItemInterface.Designer.cs">
-      <DependentUpon>FanficItemInterface.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NuarkNETOD.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FanficItemInterface.resx">
-      <DependentUpon>FanficItemInterface.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

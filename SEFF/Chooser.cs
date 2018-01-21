@@ -12,15 +12,12 @@ namespace SEFF
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new XmLer().Show();
-            Hide();
+            new XmLer().ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new Main().Show();
-
-            Hide();
+            new Main().ShowDialog();
         }
 
         private void seffTrayIco_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -35,13 +32,17 @@ namespace SEFF
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new ParserV3().Show();
-            Hide();
+            new ParserV3().ShowDialog();
         }
 
         private void Chooser_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new Form1().ShowDialog();
         }
     }
 }
